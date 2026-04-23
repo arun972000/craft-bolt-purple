@@ -130,7 +130,7 @@ export default function AboutSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="absolute -bottom-8 -left-8 bg-white rounded-2xl p-8 premium-shadow-lg max-w-xs"
+              className="absolute -bottom-6 left-4 sm:-bottom-8 sm:-left-8 bg-white rounded-2xl p-6 sm:p-8 premium-shadow-lg max-w-[240px] sm:max-w-xs"
             >
               <div className="text-5xl font-bold text-[#5B2D82] mb-2">25+</div>
               <div className="text-gray-600 font-medium">Years of Industry Excellence</div>
@@ -145,7 +145,7 @@ export default function AboutSection() {
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="absolute top-8 -right-8 w-32 h-32 bg-[#8E6BB5] rounded-full blur-3xl opacity-30"
+              className="absolute top-8 right-0 sm:-right-8 w-32 h-32 bg-[#8E6BB5] rounded-full blur-3xl opacity-30"
             />
           </motion.div>
         </div>
