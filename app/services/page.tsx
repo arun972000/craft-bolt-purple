@@ -26,6 +26,7 @@ export default function ServicesPage() {
         'Dedicated account management',
         'Customized marketing campaigns',
       ],
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2340',
     },
     {
       icon: BookText,
@@ -46,16 +47,16 @@ export default function ServicesPage() {
         'Timely project delivery',
         'Quality assurance at every stage',
       ],
+      image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=2340',
     },
     {
       icon: GraduationCap,
       title: 'Conference Proceedings',
       description:
-        'Specialized services for academic conferences including professional publishing, peer review, and digital dissemination.',
+        'Specialized services for academic conferences including professional publishing, and digital dissemination.',
       features: [
-        'Peer Review Management',
         'Professional Editing and Formatting',
-        'ISBN and DOI Assignment',
+        'ISBN',
         'Indexing Support (Scopus, Web of Science)',
         'Digital Distribution Platforms',
         'Open Access Publishing Options',
@@ -63,9 +64,9 @@ export default function ServicesPage() {
       benefits: [
         'Enhanced academic credibility',
         'Global visibility and reach',
-        'Citation tracking support',
         'Compliance with indexing standards',
       ],
+      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2340',
     },
   ];
 
@@ -146,13 +147,7 @@ export default function ServicesPage() {
                 <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
                   <div className="rounded-2xl overflow-hidden premium-shadow-lg">
                     <img
-                      src={`https://images.unsplash.com/photo-${
-                        index === 0
-                          ? '1521737711867-e3b97375f902'
-                          : index === 1
-                          ? '1456324463128-7ff6903988d8'
-                          : '1523580494863-6f3031224c94'
-                      }?q=80&w=2340`}
+                      src={service.image}
                       alt={service.title}
                       className="w-full h-[500px] object-cover"
                     />

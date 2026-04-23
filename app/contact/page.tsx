@@ -27,7 +27,7 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-xl text-purple-100 leading-relaxed">
-              We're here to answer your questions and discuss how we can support your publishing needs
+              We&rsquo;re here to answer your questions and discuss how we can support your publishing needs
             </p>
           </motion.div>
         </div>

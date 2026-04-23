@@ -2,20 +2,28 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import Image from 'next/image';
 
 export default function PartnersSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const [isPaused, setIsPaused] = useState(false);
 
   const partners = [
-    { name: 'JoVE', description: 'Journal of Visualized Experiments' },
-    { name: 'Taylor & Francis', description: 'Academic Publishing Excellence' },
-    { name: 'Brill', description: 'International Academic Publisher' },
-    { name: 'De Gruyter', description: 'Independent Academic Publisher' },
-    { name: 'Cambridge University Press', description: 'University of Cambridge' },
-    { name: 'Manohar Publishers', description: 'Indian Academic Publishing' },
+    { name: 'Taylor & Francis', initials: 'TF', logo: '/partners/taylor__francis_group_logo.jpg' },
+    { name: 'Royal Society of Chemistry', initials: 'RSC', logo: '/partners/roysocchem_logo.jpg' },
+    { name: 'Institute of Physics', initials: 'IOP', logo: '/partners/institute_of_physics_logo.jpg' },
+    { name: 'Editage', initials: 'EP', logo: '/partners/editage_logo.jpg' },
+    { name: 'Sage', initials: 'SG', logo: '/partners/sagepublishing_logo.jpg' },
+    { name: 'Cambridge University Press', initials: 'CUP', logo: '/partners/cambridgeuniversitypress_logo.jpg' },
+    { name: 'Lawcubator', initials: 'LC', logo: '/partners/lawcubator.jpg' },
+    { name: 'Emerald', initials: 'EM', logo: '/partners/emeraldpublishing_logo.jpg' },
+    { name: 'Magzter', initials: 'ME', logo: '/partners/magzter_logo.jpg' },
+    { name: 'Bloomsbury', initials: 'BL', logo: '/partners/bloomsbury_usa_logo.jpg' },
+    { name: 'JoVE', initials: 'JV', logo: '/partners/jove.jpg' },
   ];
+  const marqueePartners = [...partners, ...partners];
 
   return (
     <section id="partners" ref={ref} className="section-padding bg-gradient-to-b from-white to-[#F7F4FB]">
@@ -39,32 +47,58 @@ export default function PartnersSection() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {partners.map((partner, index) => (
-            <motion.div
-              key={partner.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
-              className="group relative bg-white rounded-2xl p-8 premium-shadow hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+        <div className="relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#F7F4FB] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#F7F4FB] to-transparent z-10" />
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="overflow-hidden py-2"
+          >
+            <div
+              className="flex w-max gap-6"
+              style={{
+                animation: 'partnerMarquee 42s linear infinite',
+                animationPlayState: isPaused ? 'paused' : 'running',
+              }}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#5B2D82]/0 to-[#5B2D82]/0 group-hover:from-[#5B2D82]/5 group-hover:to-transparent rounded-2xl transition-all duration-500" />
+              {marqueePartners.map((partner, index) => (
+                <div
+                  key={`${partner.name}-${index}`}
+                  className="group relative w-[220px] sm:w-[240px] bg-white rounded-2xl p-6 premium-shadow hover:shadow-2xl transition-all duration-500"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#5B2D82]/0 to-[#5B2D82]/0 group-hover:from-[#5B2D82]/5 group-hover:to-transparent rounded-2xl transition-all duration-500" />
+                  <div className="relative flex min-h-[160px] flex-col items-center justify-center text-center">
+                    <div className="mb-5 flex h-16 w-full max-w-[170px] items-center justify-center">
+                      {partner.logo ? (
+                        <div className="relative h-full w-full">
+                          <Image
+                            src={partner.logo}
+                            alt={`${partner.name} logo`}
+                            fill
+                            sizes="(max-width: 768px) 170px, 170px"
+                            className="object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#F7F4FB] border border-[#8E6BB5]/20 text-[#5B2D82] font-bold">
+                          {partner.initials}
+                        </div>
+                      )}
+                    </div>
 
-              <div className="relative">
-                <div className="h-20 flex items-center justify-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-400 group-hover:text-[#5B2D82] transition-colors duration-500 text-center">
-                    {partner.name}
-                  </h3>
+                    <h3 className="text-sm font-semibold text-gray-600 group-hover:text-[#5B2D82] transition-colors duration-500 leading-snug">
+                      {partner.name}
+                    </h3>
+                  </div>
                 </div>
-
-                <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-6" />
-
-                <p className="text-center text-gray-600 text-sm">{partner.description}</p>
-
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#5B2D82] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-            </motion.div>
-          ))}
+              ))}
+            </div>
+          </motion.div>
         </div>
 
         <motion.div
@@ -78,6 +112,16 @@ export default function PartnersSection() {
           </div>
         </motion.div>
       </div>
+      <style jsx>{`
+        @keyframes partnerMarquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
   );
 }

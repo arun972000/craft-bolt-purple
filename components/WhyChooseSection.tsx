@@ -11,7 +11,7 @@ export default function WhyChooseSection() {
 
   const metrics = [
     {
-      value: 20,
+      value: 25,
       suffix: '+',
       label: 'Years Industry Experience',
       icon: Award,
@@ -23,17 +23,12 @@ export default function WhyChooseSection() {
       icon: Network,
     },
     {
-      value: 15,
+      value: 10,
       suffix: '+',
       label: 'Global Publisher Partners',
       icon: Shield,
     },
-    {
-      value: 1000,
-      suffix: '+',
-      label: 'Projects Delivered',
-      icon: Zap,
-    },
+
   ];
 
   return (
@@ -73,7 +68,7 @@ export default function WhyChooseSection() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {metrics.map((metric, index) => (
             <MetricCard
               key={metric.label}
@@ -139,7 +134,7 @@ export default function WhyChooseSection() {
           >
             <div className="relative rounded-2xl overflow-hidden premium-shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2340"
+                src="/images/publishing excellence.jfif"
                 alt="Team collaboration"
                 className="w-full h-[400px] object-cover"
               />

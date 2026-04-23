@@ -61,11 +61,11 @@ export default function ContactSection() {
             Get In Touch
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#111111] mb-6">
-            Let's Start a{' '}
+            Let&rsquo;s Start a{' '}
             <span className="text-gradient-purple">Conversation</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We're here to answer your questions and discuss how we can support your publishing needs.
+            We&rsquo;re here to answer your questions and discuss how we can support your publishing needs.
           </p>
         </motion.div>
 
@@ -74,7 +74,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-2 space-y-8"
+            className="lg:col-span-2 space-y-6 self-center"
           >
             {contactInfo.map((info, index) => (
               <motion.div
@@ -96,17 +96,6 @@ export default function ContactSection() {
                 </div>
               </motion.div>
             ))}
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="rounded-2xl overflow-hidden premium-shadow-lg h-64"
-            >
-              <div className="w-full h-full bg-gradient-to-br from-[#5B2D82] to-[#8E6BB5] flex items-center justify-center">
-                <MapPin className="text-white" size={48} />
-              </div>
-            </motion.div>
           </motion.div>
 
           <motion.div

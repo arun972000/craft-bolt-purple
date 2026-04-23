@@ -41,9 +41,9 @@ export default function ServicesSection() {
       icon: GraduationCap,
       title: 'Conference Proceedings',
       description:
-        'Specialized services for academic conferences including professional publishing, peer review coordination, indexing support, and digital dissemination of scholarly proceedings.',
+        'Specialized services for academic conferences including professional publishing, indexing support, and digital dissemination of scholarly proceedings.',
       features: [
-        'Peer Review Management',
+
         'Professional Publishing',
         'Indexing & Citations',
         'Digital Distribution',

@@ -55,7 +55,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight"
             >
               Publishing & Representation Solutions for{' '}
               <span className="inline-block bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
@@ -67,10 +67,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed max-w-3xl"
+              className="text-base sm:text-lg md:text-xl text-white/90 mb-12 leading-relaxed max-w-3xl"
             >
-              Trusted by institutions, publishers, and professionals for delivering advanced publishing services,
-              conference proceedings, and strategic academic representation.
+              Trusted by academic institutions, corporates, publishers, and professionals for delivering advanced publishing services, conference proceedings, custom publishing, and strategic academic representation.
             </motion.p>
 
             <motion.div

@@ -1,8 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import Image from 'next/image';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -26,13 +26,6 @@ export default function Footer() {
     ],
   };
 
-  const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-  ];
-
   return (
     <footer className="bg-gradient-to-br from-[#111111] via-[#452064] to-[#5B2D82] text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
@@ -44,28 +37,25 @@ export default function Footer() {
         <div className="py-16 md:py-20">
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
             <div className="lg:col-span-2">
-              <Link href="/" className="inline-block mb-6">
-                <h2 className="text-3xl font-bold">
+              <Link href="/" className="inline-flex items-center gap-3 mb-6">
+                <div className="relative h-10 w-10 md:h-11 md:w-11 flex-shrink-0">
+                  <Image
+                    src="/logo.jpeg"
+                    alt="ContentCraft Infotech logo"
+                    fill
+                    sizes="(max-width: 768px) 40px, 44px"
+                    className="object-contain"
+                  />
+                </div>
+                <h2 className="text-3xl font-bold leading-none">
                   <span className="text-white">ContentCraft</span>
                   <span className="text-purple-300"> Infotech</span>
                 </h2>
               </Link>
-              <p className="text-purple-200 mb-6 leading-relaxed max-w-md">
+              <p className="text-purple-200 leading-relaxed max-w-md">
                 A distinguished publishing and representation company delivering excellence in academic publishing
-                services and strategic institutional partnerships.
+                services and strategic institutional partnerships, serving academic institutions as well as corporates.
               </p>
-              <div className="flex space-x-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-white hover:text-[#5B2D82] flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  >
-                    <social.icon size={18} />
-                  </a>
-                ))}
-              </div>
             </div>
 
             <div>

@@ -69,7 +69,7 @@ export default function AboutSection() {
               className="text-lg text-gray-600 mb-8 leading-relaxed"
             >
               ContentCraft Infotech is a distinguished publishing and representation company headquartered in Chennai, India.
-              Founded by seasoned publishing professionals, we bring together decades of expertise in book production, strategic
+              Founded by seasoned publishing professionals with 25+ years of deep domain expertise, we bring together strengths in book production, strategic
               sales, innovative marketing, exceptional customer experience, and comprehensive distribution management.
             </motion.p>
 
@@ -80,7 +80,8 @@ export default function AboutSection() {
               className="text-lg text-gray-600 mb-12 leading-relaxed"
             >
               Our mission is to bridge the gap between world-class publishers and academic institutions, providing tailored
-              solutions that enhance knowledge dissemination and foster academic growth. We pride ourselves on our commitment
+              solutions that enhance knowledge dissemination and foster academic growth. Serving academic institutions as well as corporates,
+              we pride ourselves on our commitment
               to quality, innovation, and building lasting partnerships.
             </motion.p>
 
@@ -131,7 +132,7 @@ export default function AboutSection() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="absolute -bottom-8 -left-8 bg-white rounded-2xl p-8 premium-shadow-lg max-w-xs"
             >
-              <div className="text-5xl font-bold text-[#5B2D82] mb-2">20+</div>
+              <div className="text-5xl font-bold text-[#5B2D82] mb-2">25+</div>
               <div className="text-gray-600 font-medium">Years of Industry Excellence</div>
             </motion.div>
 

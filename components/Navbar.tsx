@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -19,20 +20,41 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const syncScrollState = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Keep navbar state correct on initial load and hash-based navigation.
+    syncScrollState();
+
+    const syncAfterFrame = () => {
+      requestAnimationFrame(syncScrollState);
+      window.setTimeout(syncScrollState, 250);
+    };
+
+    window.addEventListener('scroll', syncScrollState, { passive: true });
+    window.addEventListener('hashchange', syncAfterFrame);
+    window.addEventListener('popstate', syncAfterFrame);
+
+    return () => {
+      window.removeEventListener('scroll', syncScrollState);
+      window.removeEventListener('hashchange', syncAfterFrame);
+      window.removeEventListener('popstate', syncAfterFrame);
+    };
   }, []);
+
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false);
+    requestAnimationFrame(() => setIsScrolled(window.scrollY > 50));
+    window.setTimeout(() => setIsScrolled(window.scrollY > 50), 250);
+  };
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
         isScrolled
           ? 'bg-white/70 backdrop-blur-xl shadow-sm border-b border-gray-100'
           : 'bg-transparent'
@@ -41,16 +63,31 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20 md:h-24">
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="text-2xl md:text-3xl font-bold">
-              <span className={`transition-colors duration-300 ${
-                isScrolled ? 'text-[#5B2D82]' : 'text-white'
-              }`}>
+            <div className="relative h-11 w-11 md:h-12 md:w-12 flex-shrink-0 overflow-hidden">
+              <Image
+                src="/logo.jpeg"
+                alt="ContentCraft Infotech logo"
+                fill
+                sizes="(max-width: 768px) 48px, 48px"
+                className="object-contain scale-[1.00]"
+                priority
+              />
+            </div>
+            <div className="hidden sm:block text-2xl md:text-3xl font-bold leading-none">
+              <span
+                className={`transition-colors duration-300 ${
+                  isScrolled ? 'text-[#5B2D82]' : 'text-white'
+                }`}
+              >
                 ContentCraft
               </span>
-              <span className={`transition-colors duration-300 ${
-                isScrolled ? 'text-[#111111]' : 'text-white/90'
-              }`}>
-                {' '}Infotech
+              <span
+                className={`transition-colors duration-300 ${
+                  isScrolled ? 'text-[#111111]' : 'text-white/90'
+                }`}
+              >
+                {' '}
+                Infotech
               </span>
             </div>
           </Link>
@@ -60,6 +97,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
+                onClick={handleNavClick}
                 className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 group ${
                   isScrolled ? 'text-gray-700 hover:text-[#5B2D82]' : 'text-white hover:text-white/80'
                 }`}
@@ -106,7 +144,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={handleNavClick}
                     className="px-4 py-3 text-gray-700 hover:text-[#5B2D82] hover:bg-[#F7F4FB] rounded-lg transition-all duration-300 font-medium"
                   >
                     {item.name}

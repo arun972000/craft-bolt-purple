@@ -71,7 +71,7 @@ export default function AboutPage() {
                 <p>
                   ContentCraft Infotech was founded with a clear vision: to bridge the gap between world-class
                   academic publishers and institutions across India and South Asia. Our journey began with a team
-                  of experienced publishing professionals who recognized the need for specialized representation
+                  of experienced publishing professionals with 25+ years of experience in publishing and representation who recognized the need for specialized representation
                   and comprehensive publishing services in the academic sector.
                 </p>
                 <p>
@@ -98,7 +98,7 @@ export default function AboutPage() {
             >
               <div className="rounded-2xl overflow-hidden premium-shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2340"
+                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2340"
                   alt="Team collaboration"
                   className="w-full h-[500px] object-cover"
                 />
