@@ -98,7 +98,7 @@ export default function AboutPage() {
             >
               <div className="rounded-2xl overflow-hidden premium-shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2340"
+                  src="/images/our story.png"
                   alt="Team collaboration"
                   className="w-full h-[500px] object-cover"
                 />

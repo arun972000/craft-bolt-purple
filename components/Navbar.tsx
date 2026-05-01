@@ -65,7 +65,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center space-x-2 group">
             <div className="relative h-11 w-11 md:h-12 md:w-12 flex-shrink-0 overflow-hidden">
               <Image
-                src="/logo.jpeg"
+                src={isScrolled ? '/logo_no_bg.png' : '/logo-without bg.png'}
                 alt="ContentCraft Infotech logo"
                 fill
                 sizes="(max-width: 768px) 48px, 48px"
@@ -73,7 +73,7 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <div className="hidden sm:block text-2xl md:text-3xl font-bold leading-none">
+            <div className="block max-w-[210px] sm:max-w-none text-lg sm:text-2xl md:text-3xl font-bold leading-none truncate">
               <span
                 className={`transition-colors duration-300 ${
                   isScrolled ? 'text-[#5B2D82]' : 'text-white'

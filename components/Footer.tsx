@@ -40,7 +40,7 @@ export default function Footer() {
               <Link href="/" className="inline-flex items-center gap-3 mb-6">
                 <div className="relative h-10 w-10 md:h-11 md:w-11 flex-shrink-0">
                   <Image
-                    src="/logo.jpeg"
+                    src="/logo-without bg.png"
                     alt="ContentCraft Infotech logo"
                     fill
                     sizes="(max-width: 768px) 40px, 44px"

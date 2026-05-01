@@ -11,17 +11,17 @@ export default function PartnersSection() {
   const [isPaused, setIsPaused] = useState(false);
 
   const partners = [
-    { name: 'Taylor & Francis', initials: 'TF', logo: '/partners/taylor__francis_group_logo.jpg' },
-    { name: 'Royal Society of Chemistry', initials: 'RSC', logo: '/partners/roysocchem_logo.jpg' },
-    { name: 'Institute of Physics', initials: 'IOP', logo: '/partners/institute_of_physics_logo.jpg' },
-    { name: 'Editage', initials: 'EP', logo: '/partners/editage_logo.jpg' },
-    { name: 'Sage', initials: 'SG', logo: '/partners/sagepublishing_logo.jpg' },
-    { name: 'Cambridge University Press', initials: 'CUP', logo: '/partners/cambridgeuniversitypress_logo.jpg' },
-    { name: 'Lawcubator', initials: 'LC', logo: '/partners/lawcubator.jpg' },
-    { name: 'Emerald', initials: 'EM', logo: '/partners/emeraldpublishing_logo.jpg' },
-    { name: 'Magzter', initials: 'ME', logo: '/partners/magzter_logo.jpg' },
-    { name: 'Bloomsbury', initials: 'BL', logo: '/partners/bloomsbury_usa_logo.jpg' },
-    { name: 'JoVE', initials: 'JV', logo: '/partners/jove.jpg' },
+    { name: 'Taylor & Francis', initials: 'TF', logo: '/partners/taylor__francis_group_logo.jpg', link: 'https://taylorandfrancis.com/' },
+    { name: 'Royal Society of Chemistry', initials: 'RSC', logo: '/partners/roysocchem_logo.jpg', link: 'https://www.rsc.org/' },
+    { name: 'Institute of Physics', initials: 'IOP', logo: '/partners/institute_of_physics_logo.jpg', link: 'https://ioppublishing.org/' },
+    { name: 'Editage', initials: 'EP', logo: '/partners/editage_logo.jpg', link: 'https://www.editage.com/' },
+    { name: 'Sage', initials: 'SG', logo: '/partners/sagepublishing_logo.jpg', link: 'https://us.sagepub.com/' },
+    { name: 'Cambridge University Press', initials: 'CUP', logo: '/partners/cambridgeuniversitypress_logo.jpg', link: 'https://www.cambridge.org/' },
+    { name: 'Lawcubator', initials: 'LC', logo: '/partners/lawcubator.jpg', link: 'https://lawcubator.com/' },
+    { name: 'Emerald', initials: 'EM', logo: '/partners/emeraldpublishing_logo.jpg', link: 'https://www.emeraldgrouppublishing.com/' },
+    { name: 'Magzter', initials: 'ME', logo: '/partners/magzter_logo.jpg', link: 'https://www.magzter.com/' },
+    { name: 'Bloomsbury', initials: 'BL', logo: '/partners/bloomsbury_usa_logo.jpg', link: 'https://www.bloomsbury.com/' },
+    { name: 'JoVE', initials: 'JV', logo: '/partners/jove.jpg', link: 'https://www.jove.com/' },
   ];
   const marqueePartners = [...partners, ...partners];
 
@@ -73,14 +73,20 @@ export default function PartnersSection() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-[#5B2D82]/0 to-[#5B2D82]/0 group-hover:from-[#5B2D82]/5 group-hover:to-transparent rounded-2xl transition-all duration-500" />
                   <div className="relative flex min-h-[160px] flex-col items-center justify-center text-center">
-                    <div className="mb-5 flex h-16 w-full max-w-[170px] items-center justify-center">
+                    <a
+                      href={partner.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${partner.name} website`}
+                      className="mb-5 flex h-20 w-full max-w-[190px] items-center justify-center"
+                    >
                       {partner.logo ? (
                         <div className="relative h-full w-full">
                           <Image
                             src={partner.logo}
                             alt={`${partner.name} logo`}
                             fill
-                            sizes="(max-width: 768px) 170px, 170px"
+                            sizes="(max-width: 768px) 190px, 190px"
                             className="object-contain"
                           />
                         </div>
@@ -89,7 +95,7 @@ export default function PartnersSection() {
                           {partner.initials}
                         </div>
                       )}
-                    </div>
+                    </a>
 
                     <h3 className="text-sm font-semibold text-gray-600 group-hover:text-[#5B2D82] transition-colors duration-500 leading-snug">
                       {partner.name}

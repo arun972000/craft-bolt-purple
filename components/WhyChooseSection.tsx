@@ -134,7 +134,7 @@ export default function WhyChooseSection() {
           >
             <div className="relative rounded-2xl overflow-hidden premium-shadow-lg">
               <img
-                src="/images/publishing excellence.jfif"
+                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2340"
                 alt="Team collaboration"
                 className="w-full h-[400px] object-cover"
               />
