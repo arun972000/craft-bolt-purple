@@ -53,7 +53,7 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.242, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
         isScrolled
           ? 'bg-white/70 backdrop-blur-xl shadow-sm border-b border-gray-100'
@@ -135,7 +135,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.24 }}
             className="lg:hidden bg-white border-t border-gray-100"
           >
             <div className="container-custom py-6">

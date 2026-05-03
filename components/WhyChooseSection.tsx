@@ -52,7 +52,7 @@ export default function WhyChooseSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
           <span className="text-[#5B2D82] font-semibold text-sm tracking-wider uppercase mb-4 block">
@@ -83,7 +83,7 @@ export default function WhyChooseSection() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.55, delay: 0.4 }}
           >
             <h3 className="text-3xl md:text-4xl font-bold text-[#111111] mb-6">
               End-to-End Publishing Excellence
@@ -104,7 +104,7 @@ export default function WhyChooseSection() {
                   key={item}
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.6 + idx * 0.1 }}
+                  transition={{ duration: 0.5, delay: 0.6 + idx * 0.1 }}
                   className="flex items-center space-x-4"
                 >
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#5B2D82] to-[#8E6BB5] flex items-center justify-center">
@@ -129,7 +129,7 @@ export default function WhyChooseSection() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.55, delay: 0.4 }}
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden premium-shadow-lg">
@@ -175,7 +175,7 @@ function MetricCard({ metric, index, isInView }: any) {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+      transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
       className="group relative bg-white rounded-2xl p-8 premium-shadow hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
     >
       <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#5B2D82]/5 to-transparent rounded-bl-full -mr-12 -mt-12" />

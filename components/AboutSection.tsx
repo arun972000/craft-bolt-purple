@@ -39,12 +39,12 @@ export default function AboutSection() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.55 }}
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-6"
             >
               <span className="text-[#5B2D82] font-semibold text-sm tracking-wider uppercase">
@@ -55,7 +55,7 @@ export default function AboutSection() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="text-4xl md:text-5xl font-bold text-[#111111] mb-6 leading-tight"
             >
               Pioneering Excellence in{' '}
@@ -65,7 +65,7 @@ export default function AboutSection() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               className="text-lg text-gray-600 mb-8 leading-relaxed"
             >
               ContentCraft Infotech is a distinguished publishing and representation company headquartered in Chennai, India.
@@ -76,7 +76,7 @@ export default function AboutSection() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
               className="text-lg text-gray-600 mb-12 leading-relaxed"
             >
               Our mission is to bridge the gap between world-class publishers and academic institutions, providing tailored
@@ -88,7 +88,7 @@ export default function AboutSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
               className="grid grid-cols-2 gap-4"
             >
               {features.map((feature, index) => (
@@ -96,7 +96,7 @@ export default function AboutSection() {
                   key={feature.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+                  transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
                   className="flex items-start space-x-3"
                 >
                   <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#5B2D82] to-[#8E6BB5] flex items-center justify-center">
@@ -114,7 +114,7 @@ export default function AboutSection() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.55, delay: 0.3 }}
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden premium-shadow-lg">
@@ -129,7 +129,7 @@ export default function AboutSection() {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.55, delay: 0.6 }}
               className="absolute -bottom-6 left-4 sm:-bottom-8 sm:-left-8 bg-white rounded-2xl p-6 sm:p-8 premium-shadow-lg max-w-[240px] sm:max-w-xs"
             >
               <div className="text-5xl font-bold text-[#5B2D82] mb-2">25+</div>

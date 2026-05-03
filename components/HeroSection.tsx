@@ -43,7 +43,7 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.2 }}
               className="mb-6"
             >
               <span className="inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium">
@@ -54,7 +54,7 @@ export default function HeroSection() {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.55, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight"
             >
               Publishing & Representation Solutions for{' '}
@@ -66,7 +66,7 @@ export default function HeroSection() {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.55, delay: 0.6 }}
               className="text-base sm:text-lg md:text-xl text-white/90 mb-12 leading-relaxed max-w-3xl"
             >
               Trusted by academic institutions, corporates, publishers, and professionals for delivering advanced publishing services, conference proceedings, custom publishing, and strategic academic representation.
@@ -75,7 +75,7 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.55, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4"
             >
               <Link

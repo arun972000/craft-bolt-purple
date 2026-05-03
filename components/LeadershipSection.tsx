@@ -49,7 +49,7 @@ export default function LeadershipSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
           <span className="text-[#5B2D82] font-semibold text-sm tracking-wider uppercase mb-4 block">
@@ -71,7 +71,7 @@ export default function LeadershipSection() {
               key={leader.name}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.15 + index * 0.12 }}
+              transition={{ duration: 0.5, delay: 0.15 + index * 0.12 }}
               className="group h-full"
             >
               <div className={`relative h-full bg-white rounded-2xl overflow-hidden premium-shadow hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
@@ -97,13 +97,11 @@ export default function LeadershipSection() {
                     </div>
                   )}
 
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">{leader.name}</h3>
-                    <p className="text-purple-200 font-medium drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">{leader.role}</p>
-                  </div>
                 </div>
 
                 <div className="px-6 py-5 bg-white/95 border-t border-gray-100">
+                  <h3 className="text-2xl font-bold text-[#111111] mb-2">{leader.name}</h3>
+                  <p className="text-[#5B2D82] font-semibold mb-4">{leader.role}</p>
                   <p className={`text-sm text-gray-600 leading-relaxed whitespace-pre-line ${expandedBios[leader.name] ? '' : 'line-clamp-6'}`}>
                     {leader.bio}
                   </p>
