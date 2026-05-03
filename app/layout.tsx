@@ -15,6 +15,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'ContentCraft Infotech - Publishing & Representation Excellence',
   description: 'Leading publisher representation and publishing services company in Chennai, India. Connecting world-class publishers with academic institutions through strategic partnerships and comprehensive solutions.',
+  icons: {
+    icon: [
+      { url: '/favicon_io/favicon.ico' },
+      { url: '/favicon_io/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon_io/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/favicon_io/apple-touch-icon.png',
+    shortcut: '/favicon_io/favicon.ico',
+  },
   keywords: 'publisher representation, academic publishing, conference proceedings, publishing services, Chennai, India, book production, institutional sales',
   openGraph: {
     title: 'ContentCraft Infotech - Publishing & Representation Excellence',
