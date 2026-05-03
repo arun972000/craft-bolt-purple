@@ -37,7 +37,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="relative h-full flex items-center">
+      <div className="relative h-full flex items-center pt-24 md:pt-28 lg:pt-32">
         <div className="container-custom">
           <div className="max-w-4xl">
             <motion.div

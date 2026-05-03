@@ -15,6 +15,8 @@ export default function ContactSection() {
     subject: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
   const contactInfo = [
     {
@@ -37,9 +39,46 @@ export default function ContactSection() {
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = (await response.json()) as { ok: boolean; error?: string };
+
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || 'Unable to send your message right now.');
+      }
+
+      setSubmitStatus({
+        type: 'success',
+        message: 'Thank you. Your message has been sent successfully.',
+      });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      });
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message:
+          error instanceof Error
+            ? error.message
+            : 'Something went wrong while sending your message.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -191,11 +230,22 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="group w-full px-8 py-4 bg-gradient-to-r from-[#5B2D82] to-[#8E6BB5] text-white rounded-full font-semibold text-lg inline-flex items-center justify-center hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                   <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </button>
+
+                {submitStatus && (
+                  <p
+                    className={`text-sm font-medium ${
+                      submitStatus.type === 'success' ? 'text-green-600' : 'text-red-600'
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </p>
+                )}
               </form>
             </div>
           </motion.div>

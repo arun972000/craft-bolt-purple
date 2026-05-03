@@ -9,6 +9,7 @@ import { Linkedin, UserRound } from 'lucide-react';
 export default function LeadershipSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const [expandedBios, setExpandedBios] = useState<Record<string, boolean>>({});
 
   const leaders = [
     {
@@ -16,23 +17,22 @@ export default function LeadershipSection() {
       role: 'Founder & Director',
       image: '/employees/kumaresan.jpeg',
       linkedIn: 'https://www.linkedin.com/in/c-kumareson-3722699/',
-      bio: 'Founder and Director at ContentCraft Infotech, C Kumareson brings decades of publishing and representation experience, with deep expertise in institutional partnerships, strategic growth, and long-term relationship building across the academic ecosystem.',
+      bio: 'Founder and Director at ContentCraft Infotech, C Kumareson brings decades of publishing and representation experience, with deep expertise in institutional partnerships, strategic growth, and long-term relationship building across the academic ecosystem.\n\nHe has led strategic collaborations with universities, research institutions, and global publishing partners, enabling stronger scholarly visibility and high-impact publication outcomes.\n\nKnown for his relationship-first leadership style, he continues to mentor teams in delivering trusted representation and publishing support across South Asia and international markets.',
     },
     {
       name: 'Laxmi',
       role: 'Customer Service Management',
       linkedIn: null,
-      bio: 'Laxmi leads customer service management with a strong focus on responsiveness, quality assurance, and client success, ensuring seamless coordination between institutions, publishers, and internal teams.',
+      bio: 'Laxmi leads customer service management with a strong focus on responsiveness, quality assurance, and client success, ensuring seamless coordination between institutions, publishers, and internal teams.\n\nShe plays a key role in streamlining communication workflows, tracking delivery timelines, and maintaining operational consistency across high-volume publishing engagements.\n\nWith a people-centric and detail-oriented approach, Laxmi strengthens long-term client confidence through proactive support, transparent updates, and dependable issue resolution.',
     },
     {
-      name: 'Siddharth Padapati',
+      name: 'Siddharth Padmapati',
       role: 'Business Head',
       linkedIn: null,
       image: '/employees/sidarth.jpeg',
       bio: 'Siddhartha Padmapati, with over 23 years of experience in enterprise risk, data & analytics, and security solutions in South Asia, is a results-oriented commercial leader.\n\nPreviously, Siddhartha excelled as the Head of Sales – Indian Subcontinent at International SOS, overseeing operations across six countries and providing expert advice to global clients on duty-of-care and risk mitigation. His tenure at Dun & Bradstreet India involved leading the national GTM strategy and ensuring customer success for platforms such as Hoovers, Optimizer, DataVision, and DaaS offerings.\n\nWith a background that includes leadership roles at Thomson Reuters, LexisNexis, Infogroup, and Monster India, Siddhartha has demonstrated expertise in B2B sales, digital transformation, and strategic account growth.\n\nHe holds an MBA in Marketing & International Business from JAGSoM and is an alumnus of the Organizational Leadership Program at IIM Lucknow. Known for his consultative approach and leadership style, he brings strong market insight and business expertise.',
     },
   ];
-  const [expandedBios, setExpandedBios] = useState<Record<string, boolean>>({});
 
   const toggleBio = (name: string) => {
     setExpandedBios((prev) => ({ ...prev, [name]: !prev[name] }));
@@ -89,7 +89,6 @@ export default function LeadershipSection() {
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-[#5B2D82] via-[#6F4599] to-[#8E6BB5]" />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1B0D2A]/90 via-[#3E235A]/45 to-transparent" />
                   {!leader.image && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-32 h-32 rounded-xl bg-white/15 border border-white/25 backdrop-blur-sm flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
@@ -99,13 +98,13 @@ export default function LeadershipSection() {
                   )}
 
                   <div className="absolute bottom-6 left-6 right-6">
-                    <h3 className="text-2xl font-bold text-white mb-2">{leader.name}</h3>
-                    <p className="text-purple-200 font-medium">{leader.role}</p>
+                    <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">{leader.name}</h3>
+                    <p className="text-purple-200 font-medium drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">{leader.role}</p>
                   </div>
                 </div>
 
                 <div className="px-6 py-5 bg-white/95 border-t border-gray-100">
-                  <p className={`text-sm text-gray-600 leading-relaxed ${expandedBios[leader.name] ? '' : 'line-clamp-4'}`}>
+                  <p className={`text-sm text-gray-600 leading-relaxed whitespace-pre-line ${expandedBios[leader.name] ? '' : 'line-clamp-6'}`}>
                     {leader.bio}
                   </p>
                   {leader.bio.length > 260 && (
