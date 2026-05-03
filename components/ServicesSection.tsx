@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 export default function ServicesSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const services = [
     {
@@ -58,7 +58,7 @@ export default function ServicesSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.42 }}
           className="text-center mb-20"
         >
           <span className="text-[#5B2D82] font-semibold text-sm tracking-wider uppercase mb-4 block">
@@ -80,7 +80,7 @@ export default function ServicesSection() {
               key={service.title}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+              transition={{ duration: 0.42, delay: 0.2 + index * 0.1 }}
               className="group relative"
             >
               <div className="relative h-full bg-white rounded-2xl p-8 premium-shadow transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">

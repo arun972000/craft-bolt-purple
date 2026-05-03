@@ -42,7 +42,7 @@ export default function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.48 }}
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
@@ -62,7 +62,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55 }}
+              transition={{ duration: 0.48 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-[#111111] mb-6">
                 Our <span className="text-gradient-purple">Story</span>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55 }}
+              transition={{ duration: 0.48 }}
               className="relative"
             >
               <div className="rounded-2xl overflow-hidden premium-shadow-lg">
@@ -110,7 +110,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.48 }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-[#111111] mb-6">
@@ -128,7 +128,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.42, delay: index * 0.1 }}
                 className="bg-white rounded-2xl p-8 premium-shadow hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#5B2D82] to-[#8E6BB5] flex items-center justify-center mb-6">

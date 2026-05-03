@@ -7,7 +7,7 @@ import { MapPin, Phone, Mail, Send } from 'lucide-react';
 
 export default function ContactSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -93,7 +93,7 @@ export default function ContactSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.42 }}
           className="text-center mb-20"
         >
           <span className="text-[#5B2D82] font-semibold text-sm tracking-wider uppercase mb-4 block">
@@ -112,7 +112,7 @@ export default function ContactSection() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.55, delay: 0.2 }}
+            transition={{ duration: 0.48, delay: 0.2 }}
             className="lg:col-span-2 space-y-6 self-center"
           >
             {contactInfo.map((info, index) => (
@@ -120,7 +120,7 @@ export default function ContactSection() {
                 key={info.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                transition={{ duration: 0.42, delay: 0.3 + index * 0.1 }}
                 className="group bg-white rounded-2xl p-6 premium-shadow hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
               >
                 <div className="flex items-start space-x-4">
@@ -140,7 +140,7 @@ export default function ContactSection() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.55, delay: 0.2 }}
+            transition={{ duration: 0.48, delay: 0.2 }}
             className="lg:col-span-3"
           >
             <div className="bg-white rounded-2xl p-8 md:p-12 premium-shadow-lg">

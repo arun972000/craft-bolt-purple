@@ -7,7 +7,7 @@ import { Search, Users, Rocket, TrendingUp, CircleCheck as CheckCircle } from 'l
 
 export default function ProcessSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const steps = [
     {
@@ -77,7 +77,7 @@ export default function ProcessSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.42 }}
           className="text-center mb-20"
         >
           <span className="text-[#5B2D82] font-semibold text-sm tracking-wider uppercase mb-4 block">
@@ -102,7 +102,7 @@ export default function ProcessSection() {
                 key={step.title}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                transition={{ duration: 0.42, delay: 0.1 + index * 0.1 }}
                 className="relative"
               >
                 <div className="bg-white rounded-2xl p-6 premium-shadow hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-full">
@@ -134,7 +134,7 @@ export default function ProcessSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.42, delay: 0.8 }}
           className="mt-20 text-center"
         >
           <div className="inline-flex flex-col items-center space-y-4 px-12 py-8 rounded-2xl bg-gradient-to-br from-[#5B2D82] to-[#452064] premium-shadow-lg">

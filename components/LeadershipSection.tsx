@@ -8,7 +8,7 @@ import { Linkedin, UserRound } from 'lucide-react';
 
 export default function LeadershipSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [expandedBios, setExpandedBios] = useState<Record<string, boolean>>({});
 
   const leaders = [
@@ -49,7 +49,7 @@ export default function LeadershipSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.42 }}
           className="text-center mb-20"
         >
           <span className="text-[#5B2D82] font-semibold text-sm tracking-wider uppercase mb-4 block">
@@ -71,7 +71,7 @@ export default function LeadershipSection() {
               key={leader.name}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15 + index * 0.12 }}
+              transition={{ duration: 0.42, delay: 0.15 + index * 0.12 }}
               className="group h-full"
             >
               <div className={`relative h-full bg-white rounded-2xl overflow-hidden premium-shadow hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${

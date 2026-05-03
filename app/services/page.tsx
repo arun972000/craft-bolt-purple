@@ -84,7 +84,7 @@ export default function ServicesPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.48 }}
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
@@ -106,7 +106,7 @@ export default function ServicesPage() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.55 }}
+                transition={{ duration: 0.48 }}
                 className={`grid lg:grid-cols-2 gap-12 items-center ${
                   index % 2 === 1 ? 'lg:grid-flow-dense' : ''
                 }`}
@@ -165,7 +165,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.48 }}
             className="text-center max-w-4xl mx-auto"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">

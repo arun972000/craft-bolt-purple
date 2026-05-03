@@ -63,7 +63,7 @@ export default function PrivacyPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.48 }}
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.48 }}
             className="max-w-4xl mx-auto"
           >
             <div className="prose prose-lg max-w-none">
@@ -99,7 +99,7 @@ export default function PrivacyPage() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ duration: 0.42, delay: index * 0.1 }}
                     className="bg-white rounded-2xl p-8 premium-shadow"
                   >
                     <h2 className="text-2xl font-bold text-[#111111] mb-6 flex items-center">
@@ -123,7 +123,7 @@ export default function PrivacyPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.55 }}
+                transition={{ duration: 0.48 }}
                 className="mt-12 p-8 rounded-2xl bg-gradient-to-br from-[#F7F4FB] to-white border border-[#8E6BB5]/20"
               >
                 <h2 className="text-2xl font-bold text-[#111111] mb-4">Contact Us</h2>

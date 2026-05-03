@@ -61,8 +61,8 @@ export default function Navbar() {
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20 md:h-24">
-          <Link href="/" className="flex items-center space-x-2 group">
+        <div className="flex items-center justify-between h-20 md:h-24 overflow-x-clip">
+          <Link href="/" className="flex items-center space-x-2 group min-w-0 max-w-[calc(100%-3.25rem)]">
             <div className="relative h-11 w-11 md:h-12 md:w-12 flex-shrink-0 overflow-hidden">
               <Image
                 src={isScrolled ? '/logo_no_bg.png' : '/logo-without bg.png'}
@@ -73,7 +73,7 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <div className="block max-w-[210px] sm:max-w-none text-lg sm:text-2xl md:text-3xl font-bold leading-none truncate">
+            <div className="block min-w-0 max-w-[210px] sm:max-w-none text-lg sm:text-2xl md:text-3xl font-bold leading-none truncate">
               <span
                 className={`transition-colors duration-300 ${
                   isScrolled ? 'text-[#5B2D82]' : 'text-white'

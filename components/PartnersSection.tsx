@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function PartnersSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [isPaused, setIsPaused] = useState(false);
 
   const partners = [
@@ -31,7 +31,7 @@ export default function PartnersSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.42 }}
           className="text-center mb-20"
         >
           <span className="text-[#5B2D82] font-semibold text-sm tracking-wider uppercase mb-4 block">
@@ -54,7 +54,7 @@ export default function PartnersSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.42, delay: 0.1 }}
             className="overflow-hidden py-2"
           >
             <div
@@ -110,7 +110,7 @@ export default function PartnersSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.42, delay: 0.8 }}
           className="mt-16 text-center"
         >
           <div className="inline-flex items-center space-x-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#F7F4FB] to-white border border-[#8E6BB5]/20">
