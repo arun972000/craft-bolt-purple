@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Handshake, BookText, GraduationCap, CircleCheck as CheckCircle } from 'lucide-react';
+import { Handshake, BookText, GraduationCap, FileText, CircleCheck as CheckCircle } from 'lucide-react';
 
 export default function ServicesPage() {
   const services = [
@@ -67,6 +67,26 @@ export default function ServicesPage() {
         'Compliance with indexing standards',
       ],
       image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2340',
+    },
+    {
+      icon: FileText,
+      title: 'Custom Publishing',
+      description:
+        'Custom publishing solutions designed to meet the unique needs of institutions and organizations, covering content creation, editorial workflows, and end-to-end publishing support.',
+      features: [
+        'Institution-Specific Content Development',
+        'Editorial Workflow Design and Execution',
+        'Customized Print and Digital Publishing Models',
+        'Brand-Aligned Publication Standards',
+        'End-to-End Project Coordination',
+      ],
+      benefits: [
+        'Publishing programs tailored to organizational goals',
+        'Consistent quality across all publication outputs',
+        'Improved turnaround through optimized workflows',
+        'Scalable support for recurring publishing needs',
+      ],
+      image: '/images/publishing excellence.jfif',
     },
   ];
 

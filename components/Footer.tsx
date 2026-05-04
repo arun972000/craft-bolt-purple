@@ -18,6 +18,7 @@ export default function Footer() {
       { name: 'Publisher Representation', href: '/services' },
       { name: 'Publishing Services', href: '/services' },
       { name: 'Conference Proceedings', href: '/services' },
+      { name: 'Custom Publishing', href: '/services' },
     ],
     legal: [
       { name: 'Privacy Policy', href: '/privacy' },

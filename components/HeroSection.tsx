@@ -6,7 +6,7 @@ import { ArrowRight, Play } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative min-h-[100svh] w-full overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-[#452064] via-[#5B2D82] to-[#8E6BB5]">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2428')] bg-cover bg-center opacity-20 mix-blend-overlay" />
 
@@ -37,7 +37,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="relative h-full flex items-center pt-24 md:pt-28 lg:pt-32">
+      <div className="hero-content-offset relative flex min-h-[100svh] items-start pt-28 md:pt-24 lg:min-h-screen lg:items-center lg:pt-28 xl:pt-32">
         <div className="container-custom">
           <div className="max-w-4xl">
             <motion.div

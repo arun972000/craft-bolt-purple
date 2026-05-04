@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Handshake, BookText, GraduationCap, ArrowRight } from 'lucide-react';
+import { Handshake, BookText, GraduationCap, FileText, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServicesSection() {
@@ -50,6 +50,19 @@ export default function ServicesSection() {
       ],
       gradient: 'from-[#452064] to-[#8E6BB5]',
     },
+    {
+      icon: FileText,
+      title: 'Custom Publishing',
+      description:
+        'Provide tailored publishing solutions for academic institutions and corporates, including content development, editorial support, and customized publishing workflows.',
+      features: [
+        'Content Development',
+        'Editorial Support',
+        'Workflow Customization',
+        'Institutional Publishing Programs',
+      ],
+      gradient: 'from-[#5B2D82] to-[#8E6BB5]',
+    },
   ];
 
   return (
@@ -74,7 +87,7 @@ export default function ServicesSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}

@@ -100,3 +100,9 @@
     text-wrap: balance;
   }
 }
+
+@media (orientation: landscape) and (max-width: 1024px) and (max-height: 600px) {
+  .hero-content-offset {
+    padding-top: 7.75rem;
+  }
+}
