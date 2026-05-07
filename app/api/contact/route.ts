@@ -12,6 +12,11 @@ function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function extractEmailAddress(value: string): string {
+  const match = value.match(/<([^>]+)>/);
+  return (match?.[1] ?? value).trim();
+}
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as Partial<ContactPayload>;
@@ -36,15 +41,16 @@ export async function POST(request: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const fromEmail = process.env.CONTACT_FROM_EMAIL;
-    const toEmail = process.env.CONTACT_TO_EMAIL || 'ck@contentcraftinfotech.com';
+    const fromEmail = process.env.CONTACT_FROM_EMAIL?.trim() ?? '';
+    const toEmail = process.env.CONTACT_TO_EMAIL?.trim() || 'ck@contentcraftinfotech.com';
+    const fromEmailAddress = extractEmailAddress(fromEmail);
 
-    if (!apiKey || !fromEmail) {
+    if (!apiKey || !fromEmail || !isValidEmail(fromEmailAddress) || !isValidEmail(toEmail)) {
       return NextResponse.json(
         {
           ok: false,
           error:
-            'Email service is not configured. Set RESEND_API_KEY and CONTACT_FROM_EMAIL in environment variables.',
+            'Email service is not configured correctly. Set RESEND_API_KEY, a valid CONTACT_FROM_EMAIL, and a valid CONTACT_TO_EMAIL in environment variables.',
         },
         { status: 500 }
       );
