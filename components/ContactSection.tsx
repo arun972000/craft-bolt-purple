@@ -5,17 +5,43 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
 
+type ContactFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+};
+
+const CONTACT_EMAIL = 'ck@contentcraftinfotech.com';
+
+const initialFormData: ContactFormData = {
+  name: '',
+  email: '',
+  phone: '',
+  subject: '',
+  message: '',
+};
+
+function buildMailtoLink({ name, email, phone, subject, message }: ContactFormData) {
+  const body = [
+    'Hello Content Craft Infotech,',
+    '',
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone || 'Not provided'}`,
+    '',
+    'Message:',
+    message,
+  ].join('\n');
+
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 export default function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState(initialFormData);
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
   const contactInfo = [
@@ -34,55 +60,34 @@ export default function ContactSection() {
     {
       icon: Mail,
       title: 'Email',
-      details: 'ck@contentcraftinfotech.com',
+      details: CONTACT_EMAIL,
       subDetails: 'We reply within 24 hours',
     },
   ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      const data = (await response.json()) as { ok: boolean; error?: string };
-
-      if (!response.ok || !data.ok) {
-        throw new Error(data.error || 'Unable to send your message right now.');
-      }
+      window.location.href = buildMailtoLink(formData);
 
       setSubmitStatus({
         type: 'success',
-        message: 'Thank you. Your message has been sent successfully.',
+        message: `Your default email app should open with a pre-filled draft to ${CONTACT_EMAIL}.`,
       });
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-      });
-    } catch (error) {
+      setFormData(initialFormData);
+    } catch {
       setSubmitStatus({
         type: 'error',
-        message:
-          error instanceof Error
-            ? error.message
-            : 'Something went wrong while sending your message.',
+        message: `We could not open your email app. Please email us directly at ${CONTACT_EMAIL}.`,
       });
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((current) => ({ ...current, [name]: value }));
   };
 
   return (
@@ -230,12 +235,15 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
                   className="group w-full px-8 py-4 bg-gradient-to-r from-[#5B2D82] to-[#8E6BB5] text-white rounded-full font-semibold text-lg inline-flex items-center justify-center hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  Send Message
                   <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </button>
+
+                <p className="text-sm text-gray-500">
+                  Clicking send opens your default email app with a pre-filled draft.
+                </p>
 
                 {submitStatus && (
                   <p
